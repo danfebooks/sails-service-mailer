@@ -1,6 +1,6 @@
 {
   "name": "@danfebooks/sails-service-mailer",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "Service for Sails framework with Mailer feautres",
   "main": "lib/index.js",
   "author": "danfebooks",
