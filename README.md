@@ -1,25 +1,11 @@
 # sails-service-mailer
-
-![Build Status](https://img.shields.io/travis/ghaiklor/sails-service-mailer.svg)
-![Coverage](https://img.shields.io/coveralls/ghaiklor/sails-service-mailer.svg)
-
-![Downloads](https://img.shields.io/npm/dm/sails-service-mailer.svg)
-![Downloads](https://img.shields.io/npm/dt/sails-service-mailer.svg)
-![npm version](https://img.shields.io/npm/v/sails-service-mailer.svg)
-![License](https://img.shields.io/npm/l/sails-service-mailer.svg)
-
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-![dependencies](https://img.shields.io/david/ghaiklor/sails-service-mailer.svg)
-![dev dependencies](https://img.shields.io/david/dev/ghaiklor/sails-service-mailer.svg)
-
-Service for Sails framework with Mailer features.
+Email Service for Sails framework
 
 ## List of supported mail transports
 
-- direct (sends email directly to MX server)
-- SendGrid ([SendGrid API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html))
-- sendmail (sends email via sendmail)
+- Direct (sends email directly to MX server)
+- SendGrid ([SendGrid API](https://sendgrid.com/docs/api-reference/))
+- Sendmail (sends email via sendmail)
 - Amazon SES (sends email via Amazon SES services)
 - SMTP (sends email via some of SMTP servers)
 - Stub (stub sending of email)
@@ -29,14 +15,14 @@ Service for Sails framework with Mailer features.
 Install this module.
 
 ```shell
-npm install sails-service-mailer
+npm install @danfebooks/sails-service-mailer
 ```
 
 Then require it in your service and create mailer instance.
 
 ```javascript
 // api/services/MailerService.js
-import MailerService from 'sails-service-mailer';
+import MailerService from '@danfebooks/sails-service-mailer';
 
 export default MailerService('sendmail', {
   from: 'no-reply@my-project.com',
@@ -104,7 +90,7 @@ All of this examples contains all the provider configuration keys. And most of t
 
 ```javascript
 let direct = MailerService('direct', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     name: '<MX_HOSTNAME>', // hostname to be used when introducing the client to the MX server
     debug: false // if true, the connection emits all traffic between client and server as `log` events
@@ -116,11 +102,10 @@ let direct = MailerService('direct', {
 
 ```javascript
 let sendGrid = MailerService('sendgrid', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     auth: {
-      api_user: '<SENDGRID_USERNAME>', // SendGrid username
-      api_key: '<SENDGRID_PASSWORD>' // SendGrid password
+      api_key: '<SENDGRID_APIKEY>' // SendGrid API KEY
     }
   }
 });
@@ -130,7 +115,7 @@ let sendGrid = MailerService('sendgrid', {
 
 ```javascript
 let sendmail = MailerService('sendmail', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     path: '/usr/bin/sendmail', // path to the sendmail command
     args: [] // an array of extra command line options to pass to the `sendmail` command
@@ -142,7 +127,7 @@ let sendmail = MailerService('sendmail', {
 
 ```javascript
 let ses = MailerService('ses', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     ses: {}, // instantiated AWS SES object with new AWS.SES()
     accessKeyId: 'MY_KEY', // AWS access key
@@ -159,7 +144,7 @@ let ses = MailerService('ses', {
 
 ```javascript
 let smtp = MailerService('smtp', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     port: 25, // The port to connect to
     host: 'localhost', // The hostname to connect to
@@ -186,33 +171,9 @@ let smtp = MailerService('smtp', {
 
 ```javascript
 let stub = MailerService('stub', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     error: new Error('Invalid recipient') // If you want that sending will fail and return error
   }
 });
 ```
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Eugene Obrezkov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

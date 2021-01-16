@@ -1,23 +1,23 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import SMTPMailer from '../../src/SMTPMailer';
+import SendMailMailer from '../src/SendMailMailer';
 
-describe('SMTPMailer', () => {
+describe('SendMailMailer', () => {
   it('Should properly export', () => {
-    assert.isFunction(SMTPMailer);
+    assert.isFunction(SendMailMailer);
   });
 
   it('Should properly instantiate', () => {
-    let mailer = new SMTPMailer();
-    assert.instanceOf(mailer, SMTPMailer);
+    let mailer = new SendMailMailer();
+    assert.instanceOf(mailer, SendMailMailer);
   });
 
   it('Should properly send mail', done => {
-    let mailer = new SMTPMailer({
-      from: 'no-reply@ghaiklor.com'
+    let mailer = new SendMailMailer({
+      from: 'no-reply@danfebooks.com'
     });
 
-    sinon.stub(mailer.getProvider(), 'sendMail', (config, cb) => cb());
+    sinon.stub(mailer.getProvider(), 'sendMail').callsFake((config, cb) => cb())
 
     mailer
       .send({
@@ -26,7 +26,7 @@ describe('SMTPMailer', () => {
       .then(() => {
         assert(mailer.getProvider().sendMail.calledOnce);
         assert.deepEqual(mailer.getProvider().sendMail.getCall(0).args[0], {
-          from: 'no-reply@ghaiklor.com',
+          from: 'no-reply@danfebooks.com',
           to: 'another@mail.com'
         });
         assert.isFunction(mailer.getProvider().sendMail.getCall(0).args[1]);
@@ -39,7 +39,7 @@ describe('SMTPMailer', () => {
   });
 
   it('Should properly throw exception on send', done => {
-    let mailer = new SMTPMailer();
+    let mailer = new SendMailMailer();
     mailer.getProvider().transporter = 'WRONG';
 
     mailer

@@ -21,7 +21,8 @@ const mailer = {
  */
 export default function (type, config) {
   if (mailer[type.toLowerCase()] instanceof Function) {
-    return new mailer[type.toLowerCase()](config);
+    const newMailer = new mailer[type.toLowerCase()](config);
+    return newMailer;
   } else {
     throw new Error('Unrecognized type -> ' + type);
   }

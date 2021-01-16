@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import DirectMailer from '../../src/DirectMailer';
+import DirectMailer from '../src/DirectMailer';
 
 describe('DirectMailer', () => {
   it('Should properly export', () => {
@@ -14,10 +14,10 @@ describe('DirectMailer', () => {
 
   it('Should properly send mail', done => {
     let mailer = new DirectMailer({
-      from: 'no-reply@ghaiklor.com'
+      from: 'no-reply@danfebooks.com'
     });
-
-    sinon.stub(mailer.getProvider(), 'sendMail', (config, cb) => cb());
+    // sinon.stub(mailer.getProvider(), 'sendMail', (config, cb) => cb());
+    sinon.stub(mailer.getProvider(), 'sendMail').callsFake((config, cb) => cb())
 
     mailer
       .send({
@@ -26,7 +26,7 @@ describe('DirectMailer', () => {
       .then(() => {
         assert(mailer.getProvider().sendMail.calledOnce);
         assert.deepEqual(mailer.getProvider().sendMail.getCall(0).args[0], {
-          from: 'no-reply@ghaiklor.com',
+          from: 'no-reply@danfebooks.com',
           to: 'another@mail.com'
         });
         assert.isFunction(mailer.getProvider().sendMail.getCall(0).args[1]);

@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import StubMailer from '../../src/StubMailer';
+import StubMailer from '../src/StubMailer';
 
 describe('StubMailer', () => {
   it('Should properly export', () => {

@@ -1,61 +1,53 @@
 {
-  "name": "sails-service-mailer",
-  "version": "0.0.0-semantic-release",
+  "name": "@danfebooks/sails-service-mailer",
+  "version": "3.2.3",
   "description": "Service for Sails framework with Mailer feautres",
   "main": "lib/index.js",
-  "author": "ghaiklor",
+  "author": "danfebooks",
   "license": "MIT",
   "scripts": {
     "compile": "babel src --out-dir lib",
-    "coveralls": "cat coverage/lcov.info | coveralls",
-    "prepublish": "npm run compile",
+    "prepublish": "npm run snyk-protect && npm run compile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "babel-node ./node_modules/.bin/isparta cover _mocha"
+    "test": "mocha --full-trace",
+    "snyk-protect": "snyk protect"
   },
   "bugs": {
-    "url": "https://github.com/ghaiklor/sails-service-mailer/issues"
+    "url": "https://github.com/danfebooks/sails-service-mailer/issues"
   },
-  "homepage": "https://github.com/ghaiklor/sails-service-mailer#readme",
+  "homepage": "https://github.com/danfebooks/sails-service-mailer#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghaiklor/sails-service-mailer.git"
+    "url": "https://github.com/danfebooks/sails-service-mailer.git"
   },
   "keywords": [
     "sails",
+    "sailsjs",
+    "nodemailer",
+    "sendgrid",
     "service",
     "mailer"
   ],
   "dependencies": {
-    "lodash": "4.0.1",
-    "nodemailer": "2.0.0",
-    "nodemailer-direct-transport": "2.0.1",
-    "nodemailer-sendgrid-transport": "0.2.0",
-    "nodemailer-sendmail-transport": "1.0.0",
-    "nodemailer-ses-transport": "1.3.0",
-    "nodemailer-smtp-transport": "2.0.1",
-    "nodemailer-stub-transport": "1.0.0"
+    "@danfebooks/nodemailer-sendgrid-transport": "0.3.4",
+    "lodash": "4.17.20",
+    "nodemailer": "6.4.17",
+    "nodemailer-direct-transport": "3.3.2",
+    "nodemailer-sendmail-transport": "1.0.2",
+    "nodemailer-ses-transport": "1.5.1",
+    "nodemailer-smtp-transport": "2.7.4",
+    "nodemailer-stub-transport": "1.1.0",
+    "snyk": "1.437.4"
   },
   "devDependencies": {
-    "babel-cli": "6.4.5",
-    "babel-plugin-add-module-exports": "0.1.2",
-    "babel-preset-es2015": "6.3.13",
-    "chai": "3.4.1",
-    "coveralls": "2.11.6",
-    "cz-conventional-changelog": "1.1.5",
-    "isparta": "4.0.0",
-    "mocha": "2.4.2",
-    "semantic-release": "4.3.5",
-    "sinon": "1.17.3"
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/node": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "@babel/register": "7.12.10",
+    "chai": "4.2.0",
+    "mocha": "8.2.1",
+    "sinon": "9.2.3"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "publishConfig": {
-    "tag": "latest"
-  },
-  "release": {
-    "branch": "master"
-  }
+  "snyk": true
 }

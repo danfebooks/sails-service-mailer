@@ -1,12 +1,11 @@
 import _ from 'lodash';
 import nodemailer from 'nodemailer';
-import sendGridTransport from 'nodemailer-sendgrid-transport';
+import sendGridTransport from '@danfebooks/nodemailer-sendgrid-transport';
 import BaseMailer from './BaseMailer';
 
 export default class SendGridMailer extends BaseMailer {
   constructor(config) {
     super(config);
-
     this.setProvider(nodemailer.createTransport(sendGridTransport(this.get('provider'))));
   }
 
