@@ -1,10 +1,10 @@
 # sails-service-mailer
-Service for Sails framework with Mailer features.
+Email Service for Sails framework
 
 ## List of supported mail transports
 
 - direct (sends email directly to MX server)
-- SendGrid ([SendGrid API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html))
+- SendGrid ([SendGrid API](https://sendgrid.com/docs/api-reference/))
 - sendmail (sends email via sendmail)
 - Amazon SES (sends email via Amazon SES services)
 - SMTP (sends email via some of SMTP servers)
@@ -15,14 +15,14 @@ Service for Sails framework with Mailer features.
 Install this module.
 
 ```shell
-npm install sails-service-mailer
+npm install @danfebooks/sails-service-mailer
 ```
 
 Then require it in your service and create mailer instance.
 
 ```javascript
 // api/services/MailerService.js
-import MailerService from 'sails-service-mailer';
+import MailerService from '@danfebooks/sails-service-mailer';
 
 export default MailerService('sendmail', {
   from: 'no-reply@my-project.com',
@@ -177,27 +177,3 @@ let stub = MailerService('stub', {
   }
 });
 ```
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Eugene Obrezkov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
