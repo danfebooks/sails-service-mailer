@@ -1,6 +1,8 @@
 # sails-service-mailer
 Email Service for Sails framework
 
+[![npm version](https://badge.fury.io/js/%40danfebooks%2Fsails-service-mailer.svg)](https://badge.fury.io/js/%40danfebooks%2Fsails-service-mailer)
+
 ## List of supported mail transports
 
 - Direct (sends email directly to MX server)
