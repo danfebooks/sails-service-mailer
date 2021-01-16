@@ -1,11 +1,11 @@
 import { assert } from 'chai';
-import MailerService from '../../src/index';
-import DirectMailer from '../../src/DirectMailer';
-import SendGridMailer from '../../src/SendGridMailer';
-import SendMailMailer from '../../src/SendMailMailer';
-import SESMailer from '../../src/SESMailer';
-import SMTPMailer from '../../src/SMTPMailer';
-import StubMailer from '../../src/StubMailer';
+import MailerService from '../src/index';
+import DirectMailer from '../src/DirectMailer';
+import SendGridMailer from '../src/SendGridMailer';
+import SendMailMailer from '../src/SendMailMailer';
+import SESMailer from '../src/SESMailer';
+import SMTPMailer from '../src/SMTPMailer';
+import StubMailer from '../src/StubMailer';
 
 describe('MailerService', () => {
   it('Should properly export', () => {
@@ -25,7 +25,7 @@ describe('MailerService', () => {
 
   it('Should properly send mail', done => {
     let stubMailer = MailerService.create('stub', {
-      from: 'no-reply@ghaiklor.com'
+      from: 'no-reply@danfebooks.com'
     });
 
     stubMailer
@@ -33,7 +33,7 @@ describe('MailerService', () => {
         to: 'another@mail.com'
       })
       .then(result => {
-        assert.equal(result.envelope.from, 'no-reply@ghaiklor.com');
+        assert.equal(result.envelope.from, 'no-reply@danfebooks.com');
         assert.equal(result.envelope.to, 'another@mail.com');
         done();
       })

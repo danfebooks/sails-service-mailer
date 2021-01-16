@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import BaseMailer from '../../src/BaseMailer';
+import BaseMailer from '../src/BaseMailer';
 
 describe('BaseMailer', () => {
   it('Should properly export', () => {

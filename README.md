@@ -104,7 +104,7 @@ All of this examples contains all the provider configuration keys. And most of t
 
 ```javascript
 let direct = MailerService('direct', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     name: '<MX_HOSTNAME>', // hostname to be used when introducing the client to the MX server
     debug: false // if true, the connection emits all traffic between client and server as `log` events
@@ -116,7 +116,7 @@ let direct = MailerService('direct', {
 
 ```javascript
 let sendGrid = MailerService('sendgrid', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     auth: {
       api_user: '<SENDGRID_USERNAME>', // SendGrid username
@@ -130,7 +130,7 @@ let sendGrid = MailerService('sendgrid', {
 
 ```javascript
 let sendmail = MailerService('sendmail', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     path: '/usr/bin/sendmail', // path to the sendmail command
     args: [] // an array of extra command line options to pass to the `sendmail` command
@@ -142,7 +142,7 @@ let sendmail = MailerService('sendmail', {
 
 ```javascript
 let ses = MailerService('ses', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     ses: {}, // instantiated AWS SES object with new AWS.SES()
     accessKeyId: 'MY_KEY', // AWS access key
@@ -159,7 +159,7 @@ let ses = MailerService('ses', {
 
 ```javascript
 let smtp = MailerService('smtp', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     port: 25, // The port to connect to
     host: 'localhost', // The hostname to connect to
@@ -186,7 +186,7 @@ let smtp = MailerService('smtp', {
 
 ```javascript
 let stub = MailerService('stub', {
-  from: 'no-reply@ghaiklor.com',
+  from: 'no-reply@danfebooks.com',
   provider: {
     error: new Error('Invalid recipient') // If you want that sending will fail and return error
   }

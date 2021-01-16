@@ -1,28 +1,20 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import SendGridMailer from '../../src/SendGridMailer';
+import DirectMailer from '../src/DirectMailer';
 
-const PROVIDER_CONFIG = {
-  auth: {
-    api_user: 'test',
-    api_key: 'test'
-  }
-};
-
-describe('SendGridMailer', () => {
+describe('DirectMailer', () => {
   it('Should properly export', () => {
-    assert.isFunction(SendGridMailer);
+    assert.isFunction(DirectMailer);
   });
 
   it('Should properly instantiate', () => {
-    let mailer = new SendGridMailer({provider: PROVIDER_CONFIG});
-    assert.instanceOf(mailer, SendGridMailer);
+    let mailer = new DirectMailer();
+    assert.instanceOf(mailer, DirectMailer);
   });
 
   it('Should properly send mail', done => {
-    let mailer = new SendGridMailer({
-      from: 'no-reply@ghaiklor.com',
-      provider: PROVIDER_CONFIG
+    let mailer = new DirectMailer({
+      from: 'no-reply@danfebooks.com'
     });
 
     sinon.stub(mailer.getProvider(), 'sendMail', (config, cb) => cb());
@@ -34,7 +26,7 @@ describe('SendGridMailer', () => {
       .then(() => {
         assert(mailer.getProvider().sendMail.calledOnce);
         assert.deepEqual(mailer.getProvider().sendMail.getCall(0).args[0], {
-          from: 'no-reply@ghaiklor.com',
+          from: 'no-reply@danfebooks.com',
           to: 'another@mail.com'
         });
         assert.isFunction(mailer.getProvider().sendMail.getCall(0).args[1]);
@@ -47,7 +39,7 @@ describe('SendGridMailer', () => {
   });
 
   it('Should properly throw exception on send', done => {
-    let mailer = new SendGridMailer({provider: PROVIDER_CONFIG});
+    let mailer = new DirectMailer();
     mailer.getProvider().transporter = 'WRONG';
 
     mailer
