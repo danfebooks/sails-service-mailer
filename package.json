@@ -1,6 +1,6 @@
 {
   "name": "@danfebooks/sails-service-mailer",
-  "version": "0.0.0-semantic-release",
+  "version": "3.2.3",
   "description": "Service for Sails framework with Mailer feautres",
   "main": "lib/index.js",
   "author": "danfebooks",
@@ -46,21 +46,8 @@
     "@babel/preset-env": "7.12.11",
     "@babel/register": "7.12.10",
     "chai": "4.2.0",
-    "cz-conventional-changelog": "3.3.0",
     "mocha": "8.2.1",
-    "semantic-release": "17.3.3",
     "sinon": "9.2.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "publishConfig": {
-    "tag": "latest"
-  },
-  "release": {
-    "branch": "master"
   },
   "snyk": true
 }

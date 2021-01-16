@@ -3,9 +3,9 @@ Email Service for Sails framework
 
 ## List of supported mail transports
 
-- direct (sends email directly to MX server)
+- Direct (sends email directly to MX server)
 - SendGrid ([SendGrid API](https://sendgrid.com/docs/api-reference/))
-- sendmail (sends email via sendmail)
+- Sendmail (sends email via sendmail)
 - Amazon SES (sends email via Amazon SES services)
 - SMTP (sends email via some of SMTP servers)
 - Stub (stub sending of email)
