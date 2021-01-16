@@ -7,8 +7,6 @@
   "license": "MIT",
   "scripts": {
     "compile": "babel src --out-dir lib",
-    "prepublish": "npm run snyk-protect && npm run compile",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "mocha --full-trace",
     "snyk-protect": "snyk protect"
   },
