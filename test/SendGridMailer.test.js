@@ -25,7 +25,7 @@ describe('SendGridMailer', () => {
       provider: PROVIDER_CONFIG
     });
 
-    sinon.stub(mailer.getProvider(), 'sendMail', (config, cb) => cb());
+    sinon.stub(mailer.getProvider(), 'sendMail').callsFake((config, cb) => cb())
 
     mailer
       .send({
