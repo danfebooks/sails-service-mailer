@@ -14,7 +14,7 @@ describe('MailerService', () => {
 
   it('Should properly create all of mailer instances', () => {
     assert.instanceOf(MailerService('direct'), DirectMailer);
-    assert.instanceOf(MailerService('sendgrid', {transporter: {auth: {}}}), SendGridMailer);
+    assert.instanceOf(MailerService('sendgrid', {provider: {auth: {api_key: 'SG.test'}}}), SendGridMailer);
     assert.instanceOf(MailerService('sendmail'), SendMailMailer);
     assert.instanceOf(MailerService('ses'), SESMailer);
     assert.instanceOf(MailerService('smtp'), SMTPMailer);
@@ -24,7 +24,7 @@ describe('MailerService', () => {
   });
 
   it('Should properly send mail', done => {
-    let stubMailer = MailerService.create('stub', {
+    let stubMailer = MailerService('stub', {
       from: 'no-reply@danfebooks.com'
     });
 

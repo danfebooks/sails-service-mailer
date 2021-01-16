@@ -4,8 +4,7 @@ import SendGridMailer from '../src/SendGridMailer';
 
 const PROVIDER_CONFIG = {
   auth: {
-    api_user: 'test',
-    api_key: 'test'
+    api_key: 'SG.test'
   }
 };
 

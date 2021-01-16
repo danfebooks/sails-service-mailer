@@ -10,7 +10,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "prepublish": "npm run snyk-protect && npm run compile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "mocha",
+    "test": "mocha --full-trace",
     "snyk-protect": "snyk protect"
   },
   "bugs": {
@@ -30,10 +30,10 @@
     "mailer"
   ],
   "dependencies": {
-    "nodemailer": "6.4.17",
+    "@danfebooks/nodemailer-sendgrid-transport": "0.3.4",
     "lodash": "4.17.20",
+    "nodemailer": "6.4.17",
     "nodemailer-direct-transport": "3.3.2",
-    "nodemailer-sendgrid-transport": "0.2.0",
     "nodemailer-sendmail-transport": "1.0.2",
     "nodemailer-ses-transport": "1.5.1",
     "nodemailer-smtp-transport": "2.7.4",
