@@ -1,4 +1,3 @@
-import "core-js";
 
 import DirectMailer from './DirectMailer';
 import SendGridMailer from './SendGridMailer';

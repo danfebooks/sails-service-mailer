@@ -27,8 +27,7 @@
     "mailer"
   ],
   "dependencies": {
-    "@danfebooks/nodemailer-sendgrid-transport": "0.3.4",
-    "core-js": "2.6.12",
+    "@danfebooks/nodemailer-sendgrid-transport": "0.4.0",
     "lodash": "4.17.20",
     "nodemailer": "6.4.17",
     "nodemailer-direct-transport": "3.3.2",

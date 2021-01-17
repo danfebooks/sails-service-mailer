@@ -20,11 +20,16 @@ Install this module.
 npm install @danfebooks/sails-service-mailer
 ```
 
-Then require it in your service and create mailer instance.
+Then import it in your service and create mailer instance.
+
 
 ```javascript
 // api/services/MailerService.js
 import MailerService from '@danfebooks/sails-service-mailer';
+
+// Note: If you are using commonjs `require`, then please use
+const MailerService = require('@danfebooks/sails-service-mailer').default;
+
 
 export default MailerService('sendmail', {
   from: 'no-reply@my-project.com',
